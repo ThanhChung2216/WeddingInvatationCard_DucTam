@@ -18,61 +18,81 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="theme-groom">
+  <!-- HIỆU ỨNG NỀN ĐỘNG (ÁNH SAO VÀNG / CÁNH HOA HỒNG RƠI) -->
+  <div id="particleContainer" class="particle-container" aria-hidden="true"></div>
+
+  <!-- MÀN HÌNH LOADING CHỚP NHẸ -->
   <div class="loading-screen" id="loadingScreen">
-    <div class="loading-mark">Đ <span>&</span> T</div>
+    <div class="loading-box">
+      <div class="loading-mark">Đ <span>&</span> T</div>
+      <div class="loading-sub">Wedding Invitation</div>
+    </div>
   </div>
 
-  <!-- MÀN HÌNH BÌA MỞ THIỆP (LỰA CHỌN NHÀ TRAI / NHÀ GÁI) -->
+  <!-- MÀN HÌNH BÌA MỞ THIỆP (LỰA CHỌN 2 THIẾT KẾ ĐỘC LẬP: NHÀ TRAI & NHÀ GÁI) -->
   <div class="invite-cover" id="inviteCover">
     <div class="cover-pattern"></div>
     <div class="cover-content">
-      <div class="eyebrow">THE WEDDING OF</div>
+      <div class="cover-crest">
+        <span class="crest-line"></span>
+        <span class="crest-text">THE WEDDING OF</span>
+        <span class="crest-line"></span>
+      </div>
+      
       <h1 id="coverNames">Đinh Văn Đức <span>&</span> Nguyễn Tuệ Tâm</h1>
-      <p id="coverDate">24 · 25 · 10 · 2026</p>
+      <p id="coverDate" class="cover-date">24 · 25 · 10 · 2026</p>
 
-      <div class="cover-hint-text">TRÂN TRỌNG KÍNH MỜI BẠN CHỌN THIỆP:</div>
+      <div class="cover-hint-text">CHỌN THIỆP MỜI ĐỂ XEM CHI TIẾT</div>
 
       <div class="side-selector-grid">
-        <!-- Nút chọn Nhà Trai -->
-        <button class="side-card" id="chooseGroomSide" type="button" aria-label="Mở thiệp Nhà Trai">
+        <!-- Nút chọn Nhà Trai (Royal Navy & Gold) -->
+        <button class="side-card side-card-groom" id="chooseGroomSide" type="button" aria-label="Mở thiệp Nhà Trai">
+          <div class="side-card-badge">THIỆP NHÀ TRAI</div>
           <div class="side-avatar-wrap">
             <img src="assets/images/groom-avatar.svg" alt="Chú rể Đinh Văn Đức" class="side-avatar">
-            <span class="side-badge">NHÀ TRAI</span>
+            <div class="side-seal">🤵</div>
           </div>
           <div class="side-info">
             <div class="side-role">CHÚ RỂ</div>
             <div class="side-person-name">Đinh Văn Đức</div>
-            <div class="side-parents">Bố: Đinh Văn Đạt<br>Mẹ: Nguyễn Thị Toàn</div>
-            <div class="side-action-btn primary-button">MỞ THIỆP NHÀ TRAI →</div>
+            <div class="side-parents">
+              <span>Bố: Đinh Văn Đạt</span>
+              <span>Mẹ: Nguyễn Thị Toàn</span>
+            </div>
+            <div class="side-action-btn btn-groom">MỞ THIỆP NHÀ TRAI →</div>
           </div>
         </button>
 
-        <!-- Nút chọn Nhà Gái -->
-        <button class="side-card" id="chooseBrideSide" type="button" aria-label="Mở thiệp Nhà Gái">
+        <!-- Nút chọn Nhà Gái (Rose Gold & Dusty Pink) -->
+        <button class="side-card side-card-bride" id="chooseBrideSide" type="button" aria-label="Mở thiệp Nhà Gái">
+          <div class="side-card-badge badge-bride">THIỆP NHÀ GÁI</div>
           <div class="side-avatar-wrap">
             <img src="assets/images/bride-avatar.svg" alt="Cô dâu Nguyễn Tuệ Tâm" class="side-avatar">
-            <span class="side-badge bride-badge">NHÀ GÁI</span>
+            <div class="side-seal seal-bride">👰</div>
           </div>
           <div class="side-info">
             <div class="side-role">CÔ DÂU</div>
             <div class="side-person-name">Nguyễn Tuệ Tâm</div>
-            <div class="side-parents">Bố: Nguyễn Trường Đoàn<br>Bà: Nguyễn Thị Giang</div>
-            <div class="side-action-btn primary-button bride-btn">MỞ THIỆP NHÀ GÁI →</div>
+            <div class="side-parents">
+              <span>Bố: Nguyễn Trường Đoàn</span>
+              <span>Bà: Nguyễn Thị Giang</span>
+            </div>
+            <div class="side-action-btn btn-bride">MỞ THIỆP NHÀ GÁI →</div>
           </div>
         </button>
       </div>
 
-      <p class="cover-hint">Chạm vào một bên để mở thiệp cưới chi tiết</p>
+      <p class="cover-hint">Chạm vào thiệp của Nhà Trai hoặc Nhà Gái để mở</p>
     </div>
   </div>
 
   <!-- NỘI DUNG THIỆP CHÍNH -->
   <div class="site-shell" id="siteShell" aria-hidden="true">
-
-    <!-- THANH CHUYỂN ĐỔI NỔI (NHÀ TRAI / NHÀ GÁI) -->
+    
+    <!-- THANH CHUYỂN ĐỔI NỔI TRANG NHÃ (NHÀ TRAI ⇄ NHÀ GÁI) -->
     <div class="floating-side-switch" id="sideSwitcher">
-      <div class="switch-label">Xem thiệp:</div>
+      <span class="switch-label">Xem thiệp:</span>
       <button class="switch-btn active" id="switchGroomBtn" type="button">🤵 Nhà Trai</button>
       <button class="switch-btn" id="switchBrideBtn" type="button">👰 Nhà Gái</button>
     </div>
@@ -83,17 +103,22 @@
         <span class="scroll-icon" id="scrollIcon">▶</span>
         <span class="scroll-text" id="scrollText">Tự động lướt</span>
       </button>
-      <button class="sound-button-float" id="soundButton" aria-label="Bật hoặc tắt nhạc">♫</button>
+      <button class="sound-button-float" id="soundButton" aria-label="Bật hoặc tắt nhạc">
+        <span class="sound-icon">♫</span>
+      </button>
     </div>
 
+    <!-- HERO SECTION VỚI ẢNH NỀN VÀ KHUNG TÙY THEO NHÀ TRAI / NHÀ GÁI -->
     <header class="hero section" id="heroSection">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-side-pill" id="heroSideBadge">THIỆP MỜI NHÀ TRAI</div>
         <div class="eyebrow">SAVE THE DATE</div>
-        <h1><span id="groomName">Đinh Văn Đức</span> <i>&</i> <span id="brideName">Nguyễn Tuệ Tâm</span></h1>
+        <h1 class="hero-title"><span id="groomName">Đinh Văn Đức</span> <i>&</i> <span id="brideName">Nguyễn Tuệ Tâm</span></h1>
         <p class="hero-tagline" id="tagline">We are getting married</p>
-        <div class="hero-date" id="heroDate">11h00 Chủ nhật, ngày 25 tháng 10 năm 2026</div>
+        <div class="hero-date-box">
+          <div class="hero-date" id="heroDate">11h00 Chủ nhật, ngày 25 tháng 10 năm 2026</div>
+        </div>
       </div>
     </header>
 
@@ -102,46 +127,51 @@
       <section class="section intro-section container narrow reveal">
         <div class="section-label" id="introLabel">LỜI NGỎ TỪ GIA ĐÌNH</div>
         <h2 id="introTitle">Trân trọng kính mời</h2>
-        <div class="ornament"><span></span> ♥ <span></span></div>
-        <div class="family-info-box" id="familyInfoBox">
+        <div class="ornament"><span class="ornament-line"></span> <span class="ornament-heart">♥</span> <span class="ornament-line"></span></div>
+        
+        <div class="family-certificate" id="familyInfoBox">
+          <div class="cert-corner tl"></div><div class="cert-corner tr"></div>
+          <div class="cert-corner bl"></div><div class="cert-corner br"></div>
           <p class="family-heading" id="familyHeading">HÔN LỄ CON TRAI CHÚNG TÔI</p>
           <div class="family-couple-highlight" id="familyCoupleHighlight">Chú rể: Đinh Văn Đức</div>
           <div class="family-parents-text" id="familyParentsText">Bố: Đinh Văn Đạt — Mẹ: Nguyễn Thị Toàn</div>
         </div>
-        <p class="lead" id="introLead">Sự hiện diện của bạn là niềm vinh hạnh và là lời chúc phúc quý báu nhất đối với
-          gia đình chúng mình.</p>
+        
+        <p class="lead" id="introLead">Sự hiện diện của bạn là niềm vinh hạnh và là lời chúc phúc quý báu nhất đối với gia đình chúng mình.</p>
       </section>
 
-      <!-- ĐẾM NGƯỢC ĐẾN NGÀY VUI -->
+      <!-- ĐẾM NGƯỢC ĐẾN NGÀY VUI (COUNTDOWN) -->
       <section class="section countdown-section reveal">
         <div class="container">
           <div class="section-label">COUNTING DOWN TO FOREVER</div>
           <div class="countdown-target-title" id="countdownTargetTitle">Đếm ngược đến Lễ Thành Hôn</div>
           <div class="countdown" id="countdown">
-            <div><strong id="days">00</strong><span>Ngày</span></div>
-            <div><strong id="hours">00</strong><span>Giờ</span></div>
-            <div><strong id="minutes">00</strong><span>Phút</span></div>
-            <div><strong id="seconds">00</strong><span>Giây</span></div>
+            <div class="cd-box"><strong id="days">00</strong><span>Ngày</span></div>
+            <div class="cd-box"><strong id="hours">00</strong><span>Giờ</span></div>
+            <div class="cd-box"><strong id="minutes">00</strong><span>Phút</span></div>
+            <div class="cd-box"><strong id="seconds">00</strong><span>Giây</span></div>
           </div>
         </div>
       </section>
 
-      <!-- CÂU CHUYỆN TÌNH YÊU -->
+      <!-- CÂU CHUYỆN TÌNH YÊU (OUR STORY) -->
       <section class="section story-section reveal">
         <div class="container story-grid">
-          <div>
+          <div class="story-left">
             <div class="section-label">OUR STORY</div>
             <h2 id="storyTitle">Một câu chuyện bắt đầu từ một cuộc gặp</h2>
+            <div class="story-quote">"Hạnh phúc không phải là điểm đến, mà là hành trình chúng ta đi cùng nhau."</div>
           </div>
           <div class="story-copy" id="storyCopy"></div>
         </div>
       </section>
 
-      <!-- ALBUM ẢNH -->
+      <!-- ALBUM ẢNH (OUR MOMENTS & LIGHTBOX PHÓNG TO) -->
       <section class="section gallery-section reveal">
         <div class="container">
           <div class="section-label">OUR MOMENTS</div>
-          <h2>Những khoảnh khắc chúng mình muốn lưu giữ</h2>
+          <h2>Những khoảnh khắc lưu giữ tình yêu</h2>
+          <p class="center-copy">Mỗi khoảnh khắc là một mảnh ghép dịu dàng tạo nên bức tranh tình yêu của chúng mình</p>
           <div class="gallery" id="gallery"></div>
         </div>
       </section>
@@ -151,12 +181,12 @@
         <div class="container">
           <div class="section-label">THE CELEBRATION & VENUE</div>
           <h2 id="eventSectionTitle">Chương trình & Địa điểm (Nhà Trai)</h2>
-          <p class="center-copy" id="eventSectionDesc">Trân trọng kính mời bạn đến tham dự và chung vui cùng gia đình
-            chúng mình</p>
+          <p class="center-copy" id="eventSectionDesc">Trân trọng kính mời bạn đến tham dự và chung vui cùng gia đình chúng mình</p>
 
           <div class="event-grid">
             <!-- PHẦN 1: MỜI CƠM (TIỆC CƯỚI / TIỆC MỪNG) -->
-            <div class="event-card">
+            <div class="event-card event-card-banquet">
+              <div class="card-glow"></div>
               <div class="event-card-header">
                 <span class="event-tag" id="banquetTag">THỜI GIAN, ĐỊA CHỈ MỜI CƠM</span>
                 <span class="event-time" id="banquetTime">16h30 ngày 24/10/2026</span>
@@ -165,12 +195,15 @@
               <h3 id="banquetTitle">Tiệc Cưới Nhà Trai</h3>
               <div class="event-venue-name" id="banquetVenue">Nhà Thờ giáo xứ Dũng Vy</div>
               <p class="event-address" id="banquetAddress">Thôn Giáo, xã Đại Đồng, tỉnh Bắc Ninh</p>
-              <a class="outline-button event-map-btn" id="banquetMapBtn"
-                href="https://maps.app.goo.gl/Cc2H3ob1dw5xK1dH9" target="_blank" rel="noopener">📍 MỞ BẢN ĐỒ</a>
+              <a class="event-map-btn" id="banquetMapBtn"
+                href="https://maps.app.goo.gl/Cc2H3ob1dw5xK1dH9" target="_blank" rel="noopener">
+                <span>📍 MỞ BẢN ĐỒ CHỈ ĐƯỜNG</span>
+              </a>
             </div>
 
             <!-- PHẦN 2: LỄ THÀNH HÔN (NHÀ TRAI) / LỄ VU QUY (NHÀ GÁI) -->
-            <div class="event-card highlight-card">
+            <div class="event-card event-card-ceremony highlight-card">
+              <div class="card-glow"></div>
               <div class="event-card-header">
                 <span class="event-tag" id="ceremonyTag">LỄ THÀNH HÔN</span>
                 <span class="event-time" id="ceremonyTime">11h00 ngày 25/10/2026</span>
@@ -179,8 +212,10 @@
               <h3 id="ceremonyTitle">Lễ Thành Hôn</h3>
               <div class="event-venue-name" id="ceremonyVenue">Tư gia nhà trai</div>
               <p class="event-address" id="ceremonyAddress">Thôn Giáo, xã Đại Đồng, tỉnh Bắc Ninh</p>
-              <a class="primary-button event-map-btn" id="ceremonyMapBtn"
-                href="https://maps.app.goo.gl/mgD8j7eME1PnTivR8" target="_blank" rel="noopener">📍 MỞ BẢN ĐỒ</a>
+              <a class="event-map-btn btn-featured" id="ceremonyMapBtn"
+                href="https://maps.app.goo.gl/mgD8j7eME1PnTivR8" target="_blank" rel="noopener">
+                <span>📍 MỞ BẢN ĐỒ CHỈ ĐƯỜNG</span>
+              </a>
             </div>
           </div>
         </div>
@@ -191,9 +226,8 @@
         <div class="container narrow rsvp-card">
           <div class="section-label">RSVP</div>
           <h2>Xác nhận tham dự</h2>
-          <p>Vui lòng xác nhận để chúng mình chuẩn bị chu đáo hơn cho ngày vui.</p>
-          <a class="primary-button inline-button" id="rsvpButton" href="#" target="_blank" rel="noopener">XÁC NHẬN THAM
-            DỰ</a>
+          <p>Sự hiện diện của bạn là niềm hạnh phúc lớn lao. Vui lòng phản hồi sớm để chúng mình đón tiếp chu đáo nhất!</p>
+          <a class="primary-button inline-button rsvp-submit-btn" id="rsvpButton" href="#" target="_blank" rel="noopener">XÁC NHẬN THAM DỰ</a>
           <div class="mini-contact">
             <a id="brideContact" href="#">Cô dâu</a>
             <span>·</span>
@@ -207,35 +241,43 @@
         <div class="container narrow">
           <div class="section-label">WITH LOVE</div>
           <h2>Lời chúc & mừng cưới</h2>
-          <p class="center-copy">Cảm ơn bạn đã gửi lời chúc đến chúng mình. Một lời chúc, một tình cảm nhỏ cũng đã là
-            món quà thật đáng quý.</p>
+          <p class="center-copy">Cảm ơn bạn đã luôn yêu thương và gửi gắm những lời chúc phúc ấm áp nhất đến chúng mình.</p>
           <div class="gift-grid">
             <div class="gift-card" id="groomGiftCard">
+              <div class="gift-badge">NHÀ TRAI</div>
               <h3 id="groomGiftName">ĐINH VĂN ĐỨC</h3>
               <div class="gift-role-label">(Chú rể)</div>
-              <img id="groomQr" src="assets/qr/qr-chu-re.png" alt="QR mừng cưới chú rể">
+              <div class="qr-frame">
+                <img id="groomQr" src="assets/qr/qr-chu-re.png" alt="QR mừng cưới chú rể">
+              </div>
               <p><strong id="groomBank">Tên ngân hàng</strong><br><span id="groomAccount">0000000000</span></p>
-              <button class="copy-button" data-copy-target="groomAccount">SAO CHÉP STK</button>
+              <button class="copy-button" data-copy-target="groomAccount">📋 SAO CHÉP STK</button>
             </div>
+            
             <div class="gift-card" id="brideGiftCard">
+              <div class="gift-badge badge-bride">NHÀ GÁI</div>
               <h3 id="brideGiftName">NGUYỄN TUỆ TÂM</h3>
               <div class="gift-role-label">(Cô dâu)</div>
-              <img id="brideQr" src="assets/qr/qr-co-dau.png" alt="QR mừng cưới cô dâu">
+              <div class="qr-frame">
+                <img id="brideQr" src="assets/qr/qr-co-dau.png" alt="QR mừng cưới cô dâu">
+              </div>
               <p><strong id="brideBank">Tên ngân hàng</strong><br><span id="brideAccount">0000000000</span></p>
-              <button class="copy-button" data-copy-target="brideAccount">SAO CHÉP STK</button>
+              <button class="copy-button" data-copy-target="brideAccount">📋 SAO CHÉP STK</button>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- KẾT THIỆP -->
+      <!-- KẾT THIỆP & LƯU LỊCH -->
       <section class="section closing-section reveal">
         <div class="closing-inner container narrow">
           <div class="eyebrow">THANK YOU</div>
           <h2>Hẹn gặp bạn trong ngày vui</h2>
-          <p>Thân ái,<br><span id="closingNames">Đinh Văn Đức & Nguyễn Tuệ Tâm</span></p>
-          <button class="outline-button" id="calendarButton">THÊM VÀO LỊCH</button>
-          <button class="text-button" id="shareButton">Chia sẻ thiệp</button>
+          <p>Thân ái & Biết ơn,<br><span id="closingNames">Đinh Văn Đức & Nguyễn Tuệ Tâm</span></p>
+          <div class="closing-actions">
+            <button class="outline-button" id="calendarButton">📅 THÊM VÀO LỊCH</button>
+            <button class="text-button" id="shareButton">🔗 Chia sẻ thiệp</button>
+          </div>
         </div>
       </section>
     </main>
@@ -243,6 +285,15 @@
     <footer class="footer">
       <div class="container">Made with love · <span id="footerNames">Đinh Văn Đức & Nguyễn Tuệ Tâm</span></div>
     </footer>
+  </div>
+
+  <!-- LIGHTBOX XEM ẢNH PHÓNG TO -->
+  <div id="galleryLightbox" class="gallery-lightbox" aria-hidden="true">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Đóng ảnh">&times;</button>
+      <img id="lightboxImg" src="" alt="Ảnh cưới phóng to">
+    </div>
   </div>
 
   <div class="toast" id="toast" role="status"></div>

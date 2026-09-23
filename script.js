@@ -8,11 +8,11 @@ const safeText = (id, value) => {
 let currentSide = 'groom';
 let countdownInterval = null;
 
-// Biến quản lý tính năng Tự động lướt (Auto Scroll)
+// Quản lý Tự động lướt (Auto Scroll)
 let isAutoScrolling = false;
 let autoScrollRafId = null;
-let autoScrollSpeed = 0.85; // Tốc độ lướt êm ái (~50px/giây), vừa đủ để đọc từng câu chữ
-let userInteractedTimeout = null;
+let autoScrollSpeed = 0.8; // Tốc độ vừa phải (~48px/s), rất êm ái để đọc
+let particleInterval = null;
 
 function detectSideFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -23,6 +23,62 @@ function detectSideFromUrl() {
   return 'groom';
 }
 
+/* =========================================================
+   HIỆU ỨNG HẠT ĐỘNG (SPARKLES CHO NHÀ TRAI, CÁNH HOA CHO NHÀ GÁI)
+   ========================================================= */
+function spawnParticles(sideKey) {
+  const container = $('particleContainer');
+  if (!container) return;
+
+  container.innerHTML = '';
+  if (particleInterval) clearInterval(particleInterval);
+
+  const isGroom = sideKey === 'groom';
+  const particleClass = isGroom ? 'sparkle-particle' : 'petal-particle';
+
+  // Khởi tạo các hạt
+  for (let i = 0; i < 15; i++) {
+    createParticle(container, particleClass, isGroom, true);
+  }
+
+  // Tạo liên tục các hạt mới
+  particleInterval = setInterval(() => {
+    if (container.children.length < 24) {
+      createParticle(container, particleClass, isGroom, false);
+    }
+  }, 900);
+}
+
+function createParticle(container, className, isGroom, randomStart) {
+  const p = document.createElement('div');
+  p.className = className;
+  p.style.left = `${Math.random() * 100}vw`;
+
+  const duration = isGroom ? 5 + Math.random() * 4 : 7 + Math.random() * 5;
+  p.style.animationDuration = `${duration}s`;
+
+  if (randomStart) {
+    p.style.animationDelay = `-${Math.random() * duration}s`;
+  } else {
+    p.style.animationDelay = '0s';
+  }
+
+  // Kích cỡ ngẫu nhiên nhẹ
+  const scale = 0.7 + Math.random() * 0.6;
+  p.style.transform = `scale(${scale})`;
+
+  container.appendChild(p);
+
+  setTimeout(() => {
+    if (p.parentNode === container) {
+      container.removeChild(p);
+    }
+  }, duration * 1000);
+}
+
+/* =========================================================
+   CẬP NHẬT NỘI DUNG THEO BÊN (NHÀ TRAI / NHÀ GÁI)
+   ========================================================= */
 function updateSideContent(sideKey) {
   currentSide = sideKey;
   const isGroom = sideKey === 'groom';
@@ -30,24 +86,23 @@ function updateSideContent(sideKey) {
 
   if (!data) return;
 
-  // Cập nhật class trên body để điều chỉnh theme màu
+  // Cập nhật Theme Class trên Body
   document.body.classList.remove('theme-groom', 'theme-bride');
   document.body.classList.add(data.themeClass);
 
-  // Cập nhật trạng thái nút chuyển đổi
+  // Kích hoạt hiệu ứng nền động tương ứng
+  spawnParticles(sideKey);
+
+  // Cập nhật trạng thái nút chuyển đổi nổi
   if ($('switchGroomBtn') && $('switchBrideBtn')) {
     $('switchGroomBtn').classList.toggle('active', isGroom);
     $('switchBrideBtn').classList.toggle('active', !isGroom);
   }
 
-  // Hero Section
+  // Hero Section Background
   const hero = $('heroSection');
   if (hero) {
-    if (isGroom) {
-      hero.style.backgroundImage = `linear-gradient(rgba(28,38,48,.35), rgba(28,38,48,.55)), url("${data.heroImage}")`;
-    } else {
-      hero.style.backgroundImage = `linear-gradient(rgba(45,28,32,.35), rgba(45,28,32,.55)), url("${data.heroImage}")`;
-    }
+    hero.style.backgroundImage = `url("${data.heroImage}")`;
   }
 
   safeText('heroSideBadge', `THIỆP MỜI ${data.name.toUpperCase()}`);
@@ -93,7 +148,7 @@ function updateSideContent(sideKey) {
     if ($('ceremonyMapBtn')) $('ceremonyMapBtn').href = data.ceremony.mapsUrl || '#';
   }
 
-  // Nổi bật thẻ quà tặng tương ứng
+  // Nổi bật thẻ quà mừng tương ứng
   const groomCard = $('groomGiftCard');
   const brideCard = $('brideGiftCard');
   if (groomCard && brideCard) {
@@ -101,7 +156,7 @@ function updateSideContent(sideKey) {
     brideCard.classList.toggle('active-gift', !isGroom);
   }
 
-  // Cập nhật URL tham số để chia sẻ link
+  // Cập nhật URL tham số
   try {
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.set('side', sideKey);
@@ -147,8 +202,11 @@ function populateCommonContent() {
 
   if ($('gallery') && WEDDING.gallery) {
     $('gallery').innerHTML = WEDDING.gallery.map((src, i) => `
-      <figure class="gallery-item"><img src="${src}" loading="lazy" alt="Khoảnh khắc ${i + 1}"></figure>
+      <figure class="gallery-item" data-src="${src}">
+        <img src="${src}" loading="lazy" alt="Khoảnh khắc ${i + 1}">
+      </figure>
     `).join('');
+    setupLightbox();
   }
 }
 
@@ -188,22 +246,26 @@ function openInvitationCard() {
     setTimeout(() => { loading.style.display = 'none'; }, 300);
   }
 
-  // Phát nhạc tự động khi người dùng bấm mở thiệp
+  // Tự động phát nhạc khi mở thiệp
   const audio = $('weddingMusic');
+  const soundBtn = $('soundButton');
   if (audio) {
     audio.play().then(() => {
-      if ($('soundButton')) $('soundButton').textContent = '❚❚';
+      if (soundBtn) {
+        soundBtn.textContent = '❚❚';
+        soundBtn.classList.add('playing');
+      }
     }).catch(() => {});
   }
 
-  // Sau khi mở thiệp 2 giây, tự động bật tính năng tự động lướt để khách ngắm và đọc
+  // Tự động kích hoạt tính năng lướt êm ái sau 2.2 giây
   setTimeout(() => {
     startAutoScroll();
   }, 2200);
 }
 
 /* =========================================================
-   TÍNH NĂNG TỰ ĐỘNG LƯỚT (AUTO-SCROLL) ÊM ÁI
+   TỰ ĐỘNG LƯỚT (AUTO-SCROLL)
    ========================================================= */
 function startAutoScroll() {
   if (isAutoScrolling) return;
@@ -218,11 +280,9 @@ function startAutoScroll() {
     const elapsed = currentTimestamp - lastTimestamp;
     lastTimestamp = currentTimestamp;
 
-    // Tính bước cuộn theo thời gian thực tế
     const delta = (autoScrollSpeed * elapsed) / 16.67;
     window.scrollBy(0, delta);
 
-    // Kiểm tra đã cuộn đến đáy trang chưa
     const isAtBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 10);
     if (isAtBottom) {
       stopAutoScroll();
@@ -282,7 +342,6 @@ function setupAutoScroll() {
     });
   }
 
-  // Nếu người dùng tự cuộn tay hoặc chạm màn hình, tạm dừng tự động lướt
   const pauseOnUserInteraction = () => {
     if (isAutoScrolling) {
       stopAutoScroll();
@@ -294,7 +353,6 @@ function setupAutoScroll() {
 }
 
 function setupSideSelection() {
-  // Lựa chọn ở màn hình bìa
   if ($('chooseGroomSide')) {
     $('chooseGroomSide').addEventListener('click', () => {
       updateSideContent('groom');
@@ -309,18 +367,17 @@ function setupSideSelection() {
     });
   }
 
-  // Nút chuyển đổi nổi trong trang
   if ($('switchGroomBtn')) {
     $('switchGroomBtn').addEventListener('click', () => {
       updateSideContent('groom');
-      showToast('Đã chuyển sang thông tin Nhà Trai 🤵');
+      showToast('Đã chuyển sang phong cách Nhà Trai 🤵');
     });
   }
 
   if ($('switchBrideBtn')) {
     $('switchBrideBtn').addEventListener('click', () => {
       updateSideContent('bride');
-      showToast('Đã chuyển sang thông tin Nhà Gái 👰');
+      showToast('Đã chuyển sang phong cách Nhà Gái 👰');
     });
   }
 }
@@ -345,6 +402,33 @@ function setupMusic() {
       soundBtn.classList.remove('playing');
     }
   });
+}
+
+function setupLightbox() {
+  const lightbox = $('galleryLightbox');
+  const lightboxImg = $('lightboxImg');
+  const closeBtn = $('lightboxClose');
+  const overlay = $('lightboxOverlay');
+  if (!lightbox || !lightboxImg) return;
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.dataset.src || item.querySelector('img')?.src;
+      if (src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (overlay) overlay.addEventListener('click', closeLightbox);
 }
 
 function setupCopyButtons() {
@@ -445,7 +529,6 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
 }
 
-// Khởi chạy ứng dụng
 document.addEventListener('DOMContentLoaded', () => {
   try {
     populateCommonContent();
@@ -462,7 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (err) {
     console.error("Init error:", err);
   } finally {
-    // Đảm bảo loading screen biến mất
     const ls = $('loadingScreen');
     if (ls) {
       ls.classList.add('hide');

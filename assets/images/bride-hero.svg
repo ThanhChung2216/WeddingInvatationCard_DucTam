@@ -1,19 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100">
   <defs>
-    <linearGradient id="g-bride" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#b8837e"/>
-      <stop offset="50%" stop-color="#ddb3ad"/>
-      <stop offset="100%" stop-color="#8a5450"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" x2="1">
-      <stop offset="0%" stop-color="#fdf2e9"/>
-      <stop offset="100%" stop-color="#ffffff"/>
+    <radialGradient id="blush-bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#b37073"/>
+      <stop offset="60%" stop-color="#804144"/>
+      <stop offset="100%" stop-color="#4d2023"/>
+    </radialGradient>
+    <linearGradient id="rosegold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0ec"/>
+      <stop offset="50%" stop-color="#e8a598"/>
+      <stop offset="100%" stop-color="#c97a6d"/>
     </linearGradient>
   </defs>
-  <rect width="1600" height="1100" fill="url(#g-bride)"/>
-  <circle cx="800" cy="420" r="220" fill="none" stroke="#fff" stroke-width="3" opacity=".6"/>
-  <circle cx="800" cy="420" r="210" fill="none" stroke="#fdf2e9" stroke-width="1" opacity=".4"/>
-  <text x="800" y="390" text-anchor="middle" font-family="'Great Vibes', cursive, Georgia" font-size="84" fill="#ffffff">Nguyễn Tuệ Tâm</text>
-  <text x="800" y="460" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="24" letter-spacing="8" fill="#fff" opacity=".9">NHÀ GÁI — BRIDE'S WEDDING</text>
-  <text x="800" y="700" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="36" fill="#fdf2e9" opacity=".95">"Tình yêu đích thực là bắt đầu một hành trình tuyệt đẹp"</text>
+  <rect width="1600" height="1100" fill="url(#blush-bg)"/>
+  
+  <!-- Subtle Floral Ring Background -->
+  <circle cx="800" cy="400" r="230" fill="none" stroke="#fff" stroke-width="1" opacity="0.15"/>
+  <circle cx="800" cy="400" r="195" fill="none" stroke="url(#rosegold-grad)" stroke-width="2" opacity="0.8"/>
+  <circle cx="800" cy="400" r="175" fill="none" stroke="#fff" stroke-dasharray="3,5" stroke-width="1" opacity="0.4"/>
+
+  <!-- Floral Petal Motifs on Ring -->
+  <g fill="url(#rosegold-grad)" opacity="0.85">
+    <circle cx="800" cy="205" r="7"/>
+    <circle cx="800" cy="595" r="7"/>
+    <circle cx="605" cy="400" r="7"/>
+    <circle cx="995" cy="400" r="7"/>
+    <path d="M 790 195 C 790 170 810 170 810 195 Z"/>
+    <path d="M 790 605 C 790 630 810 630 810 605 Z"/>
+  </g>
+
+  <!-- Outer Romantic Frame -->
+  <rect x="50" y="50" width="1500" height="1000" rx="30" fill="none" stroke="url(#rosegold-grad)" stroke-width="1.5" opacity="0.4"/>
+  <rect x="65" y="65" width="1470" height="970" rx="20" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.2"/>
+
+  <text x="800" y="375" text-anchor="middle" font-family="'Great Vibes', cursive, Georgia" font-size="78" fill="url(#rosegold-grad)">Nguyễn Tuệ Tâm</text>
+  <text x="800" y="440" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="16" letter-spacing="10" font-weight="700" fill="#fff" opacity="0.95">BRIDE'S WEDDING INVITATION</text>
+  <path d="M 680 470 L 920 470" stroke="url(#rosegold-grad)" stroke-width="1" opacity="0.6"/>
+
+  <text x="800" y="680" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="34" fill="#fff6f4" opacity="0.95">"Trân trọng kính mời quý khách đến chung vui cùng gia đình Nhà Gái"</text>
 </svg>

@@ -1,20 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100">
   <defs>
-    <linearGradient id="g-groom" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2c3e50"/>
-      <stop offset="50%" stop-color="#4a6572"/>
-      <stop offset="100%" stop-color="#1b2838"/>
+    <radialGradient id="navy-bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#243447"/>
+      <stop offset="60%" stop-color="#15212e"/>
+      <stop offset="100%" stop-color="#0d151e"/>
+    </radialGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5e1a4"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#aa820a"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" x2="1">
-      <stop offset="0%" stop-color="#d4af37"/>
-      <stop offset="100%" stop-color="#f3e5ab"/>
-    </linearGradient>
+    <pattern id="geometric-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 60 M 0 0 L 60 60" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
   </defs>
-  <rect width="1600" height="1100" fill="url(#g-groom)"/>
-  <circle cx="800" cy="420" r="220" fill="none" stroke="url(#gold)" stroke-width="3" opacity=".6"/>
-  <circle cx="800" cy="420" r="210" fill="none" stroke="#fff" stroke-width="1" opacity=".4"/>
-  <path d="M750 360 C750 330 850 330 850 360 C850 420 750 480 800 520 C850 480 750 420 750 360 Z" fill="url(#gold)" opacity=".15"/>
-  <text x="800" y="390" text-anchor="middle" font-family="'Great Vibes', cursive, Georgia" font-size="84" fill="url(#gold)">Đinh Văn Đức</text>
-  <text x="800" y="460" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="24" letter-spacing="8" fill="#fff" opacity=".85">NHÀ TRAI — GROOM'S WEDDING</text>
-  <text x="800" y="700" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="36" fill="#f5e6d3" opacity=".9">"Hạnh phúc là khi tìm thấy một nửa yêu thương trọn đời"</text>
+  <rect width="1600" height="1100" fill="url(#navy-bg)"/>
+  <rect width="1600" height="1100" fill="url(#geometric-grid)"/>
+  
+  <!-- Royal Gold Outer Frame -->
+  <rect x="50" y="50" width="1500" height="1000" rx="12" fill="none" stroke="url(#gold-grad)" stroke-width="2" opacity="0.5"/>
+  <rect x="65" y="65" width="1470" height="970" rx="8" fill="none" stroke="url(#gold-grad)" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Corner Ornaments -->
+  <g fill="none" stroke="url(#gold-grad)" stroke-width="2" opacity="0.8">
+    <path d="M 50 130 L 130 50 M 50 160 L 160 50 M 80 80 L 110 80 L 80 110 Z"/>
+    <path d="M 1550 130 L 1470 50 M 1550 160 L 1440 50 M 1520 80 L 1490 80 L 1520 110 Z"/>
+    <path d="M 50 970 L 130 1050 M 50 940 L 160 1050 M 80 1020 L 110 1020 L 80 990 Z"/>
+    <path d="M 1550 970 L 1470 1050 M 1550 940 L 1440 1050 M 1520 1020 L 1490 1020 L 1520 990 Z"/>
+  </g>
+
+  <!-- Central Crest -->
+  <circle cx="800" cy="400" r="180" fill="none" stroke="url(#gold-grad)" stroke-width="2.5" opacity="0.7"/>
+  <circle cx="800" cy="400" r="165" fill="none" stroke="url(#gold-grad)" stroke-dasharray="4,6" stroke-width="1.5" opacity="0.5"/>
+  
+  <text x="800" y="375" text-anchor="middle" font-family="'Great Vibes', cursive, Georgia" font-size="78" fill="url(#gold-grad)">Đinh Văn Đức</text>
+  <text x="800" y="440" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="16" letter-spacing="10" font-weight="700" fill="#f5e1a4" opacity="0.9">GROOM'S WEDDING INVITATION</text>
+  <path d="M 680 470 L 920 470" stroke="url(#gold-grad)" stroke-width="1" opacity="0.6"/>
+
+  <text x="800" y="680" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-style="italic" font-size="34" fill="#fdfbf7" opacity="0.95">"Trân trọng kính mời quý khách đến chung vui cùng gia đình Nhà Trai"</text>
 </svg>
