@@ -6,7 +6,7 @@ const WEDDING = {
   couple: {
     groom: "Đinh Văn Đức",
     bride: "Nguyễn Tuệ Tâm",
-    short: "Văn Đức & Tuệ Tâm",
+    short: "Đinh Đức & Tuệ Tâm",
     tagline: "We are getting married",
   },
 
@@ -20,7 +20,7 @@ const WEDDING = {
     parents: {
       father: "Đinh Văn Đạt",
       mother: "Nguyễn Thị Toàn",
-      label: "Bố: Đinh Văn Đạt — Mẹ: Nguyễn Thị Toàn",
+      label: "Ông: Đinh Văn Đạt — Bà: Nguyễn Thị Toàn",
     },
     heroImage: "assets/images/groom-hero.svg",
     avatar: "assets/images/groom-avatar.svg",
@@ -62,7 +62,7 @@ const WEDDING = {
     parents: {
       father: "Nguyễn Trường Đoàn",
       grandmother: "Nguyễn Thị Giang",
-      label: "Bố: Nguyễn Trường Đoàn — Bà: Nguyễn Thị Giang",
+      label: "Ông: Nguyễn Trường Đoàn — Bà: Nguyễn Thị Giang",
     },
     heroImage: "assets/images/bride-hero.svg",
     avatar: "assets/images/bride-avatar.svg",

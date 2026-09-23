@@ -157,7 +157,8 @@ p { line-height: 1.8; }
 .side-info { width: 100%; display: flex; flex-direction: column; align-items: center; }
 .side-role { font-size: 11px; letter-spacing: .18em; font-weight: 700; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; }
 .side-person-name { font-family: var(--serif); font-size: 23px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.side-parents { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 18px; min-height: 40px; display: flex; flex-direction: column; gap: 2px; }
+.side-parents { font-size: 13px; line-height: 1.6; color: var(--muted); margin-bottom: 18px; min-height: 44px; display: inline-flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 3px; }
+.side-parents span { display: block; white-space: nowrap; }
 .side-action-btn { width: 100%; min-height: 44px; font-size: 11px; font-weight: 700; letter-spacing: .12em; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all .3s ease; }
 .cover-hint { margin-top: 14px !important; font: 12px var(--sans) !important; letter-spacing: .06em !important; color: var(--muted); }
 
