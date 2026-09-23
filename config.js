@@ -1,49 +1,102 @@
 /* =========================================================
-   THIỆP CƯỚI ONLINE - FILE CẤU HÌNH
-   Chỉ cần sửa các thông tin trong object WEDDING.
+   THIỆP CƯỚI ONLINE - FILE CẤU HÌNH (NHÀ TRAI & NHÀ GÁI)
    ========================================================= */
 
 const WEDDING = {
   couple: {
-    bride: "Văn Đức",
-    groom: "Tuệ Tâm",
+    groom: "Đinh Văn Đức",
+    bride: "Nguyễn Tuệ Tâm",
     short: "Văn Đức & Tuệ Tâm",
     tagline: "We are getting married",
   },
 
+  // THÔNG TIN NHÀ TRAI (150 CÁI)
+  groomSide: {
+    key: "groom",
+    name: "Nhà Trai",
+    subtitle: "Thiệp mời từ gia đình Nhà Trai",
+    mainPerson: "Chú rể: Đinh Văn Đức",
+    groomName: "Đinh Văn Đức",
+    parents: {
+      father: "Đinh Văn Đạt",
+      mother: "Nguyễn Thị Toàn",
+      label: "Bố: Đinh Văn Đạt — Mẹ: Nguyễn Thị Toàn",
+    },
+    heroImage: "assets/images/groom-hero.svg",
+    avatar: "assets/images/groom-avatar.svg",
+    themeClass: "theme-groom",
+    heroDateText: "11h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
+    
+    // 1. Mời cơm (Tiệc cưới)
+    banquet: {
+      tag: "THỜI GIAN, ĐỊA CHỈ MỜI CƠM",
+      title: "Tiệc Cưới Nhà Trai",
+      time: "16h30 ngày 24/10/2026",
+      lunarDate: "(Tức ngày 15 tháng 9 năm Bính Ngọ)",
+      venue: "Nhà Thờ giáo xứ Dũng Vy",
+      address: "Thôn Giáo, xã Đại Đồng, tỉnh Bắc Ninh",
+      mapsUrl: "https://maps.app.goo.gl/Cc2H3ob1dw5xK1dH9",
+    },
+
+    // 2. Lễ Thành Hôn
+    ceremony: {
+      tag: "LỄ THÀNH HÔN",
+      title: "Lễ Thành Hôn",
+      time: "11h00 ngày 25/10/2026",
+      lunarDate: "(Tức ngày 16 tháng 09 năm Bính Ngọ)",
+      venue: "Tư gia nhà trai",
+      address: "Thôn Giáo, xã Đại Đồng, tỉnh Bắc Ninh",
+      mapsUrl: "https://maps.app.goo.gl/mgD8j7eME1PnTivR8",
+    },
+
+    countdownDate: "2026-10-25T11:00:00+07:00",
+  },
+
+  // THÔNG TIN NHÀ GÁI (50 CÁI)
+  brideSide: {
+    key: "bride",
+    name: "Nhà Gái",
+    subtitle: "Thiệp mời từ gia đình Nhà Gái",
+    mainPerson: "Cô dâu: Nguyễn Tuệ Tâm",
+    brideName: "Nguyễn Tuệ Tâm",
+    parents: {
+      father: "Nguyễn Trường Đoàn",
+      grandmother: "Nguyễn Thị Giang",
+      label: "Bố: Nguyễn Trường Đoàn — Bà: Nguyễn Thị Giang",
+    },
+    heroImage: "assets/images/bride-hero.svg",
+    avatar: "assets/images/bride-avatar.svg",
+    themeClass: "theme-bride",
+    heroDateText: "10h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
+
+    // 1. Mời cơm (Tiệc mừng)
+    banquet: {
+      tag: "THỜI GIAN, ĐỊA CHỈ MỜI CƠM",
+      title: "Tiệc Mừng Nhà Gái",
+      time: "16h00 ngày 24/10/2026",
+      lunarDate: "(Tức ngày 15 tháng 9 năm Bính Ngọ)",
+      venue: "Nhà văn hóa xóm Chùa",
+      address: "Đại Thượng, xã Đại Đồng, tỉnh Bắc Ninh",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Nh%C3%A0+v%C4%83n+h%C3%B3a+x%C3%B3m+Ch%C3%B9a+%C4%90%E1%BA%A1i+Th%C6%B0%E1%BB%A3ng+%C4%90%E1%BA%A1i+%C4%90%E1%BB%93ng+B%E1%BA%AFc+Ninh",
+    },
+
+    // 2. Lễ Vu Quy
+    ceremony: {
+      tag: "LỄ VU QUY",
+      title: "Lễ Vu Quy",
+      time: "10h00 ngày 25/10/2026",
+      lunarDate: "(Tức ngày 16 tháng 09 năm Bính Ngọ)",
+      venue: "Tư gia nhà gái",
+      address: "Đại Thượng, xã Đại Đồng, tỉnh Bắc Ninh",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=%C4%90%E1%BA%A1i+Th%C6%B0%E1%BB%A3ng+%C4%90%E1%BA%A1i+%C4%90%E1%BB%93ng+B%E1%BA%AFc+Ninh",
+    },
+
+    countdownDate: "2026-10-25T10:00:00+07:00",
+  },
+
   event: {
-    // ISO format. Ví dụ: 2026-10-25T16:00:00+07:00
-    dateTime: "2026-10-25T16:00:00+07:00",
-    dateText: "Chủ nhật, ngày 26 tháng 10 năm 2026",
-    timeText: "16:00",
-    receptionText: "17:30",
-  },
-
-  // 1. CỬ HÀNH LỄ THÀNH HÔN
-  ceremony: {
-    tag: "CỬ HÀNH HÔN LỄ",
-    title: "Lễ Thành Hôn",
-    time: "16:00",
-    venue: "Tư gia nhà trai",
-    address: "Thôn Giáo, xã Đại Đồng, Thành phố Bắc Ninh",
-    mapsUrl: "https://maps.app.goo.gl/B6v59w9xT43mC5jK6",
-  },
-
-  // 2. TIỆC RƯỢU / TIỆC CƯỚI
-  reception: {
-    tag: "TIỆC RƯỢU CHUNG VUI",
-    title: "Tiệc Cưới",
-    time: "17:30",
-    venue: "Nhà thờ giáo xứ Dũng Vy",
-    address: "Thôn Giáo, xã Đại Đồng, Thành phố Bắc Ninh",
-    mapsUrl: "https://maps.app.goo.gl/B6v59w9xT43mC5jK6",
-  },
-
-  venue: {
-    ceremony: "TƯ GIA NHÀ TRAI",
-    reception: "Nhà thờ giáo xứ Dũng Vy",
-    address: "Thôn Giáo, xã Đại Đồng, Thành phố Bắc Ninh",
-    mapsUrl: "https://maps.app.goo.gl/B6v59w9xT43mC5jK6",
+    dateTime: "2026-10-25T11:00:00+07:00",
+    dateText: "Chủ nhật, ngày 25 tháng 10 năm 2026",
   },
 
   story: {
@@ -64,13 +117,13 @@ const WEDDING = {
 
   gift: {
     bride: {
-      name: "Tuệ Tâm",
+      name: "Nguyễn Tuệ Tâm",
       bank: "Tên ngân hàng",
       account: "0000000000",
       qr: "assets/qr/qr-co-dau.png",
     },
     groom: {
-      name: "Văn Đức",
+      name: "Đinh Văn Đức",
       bank: "Tên ngân hàng",
       account: "0000000000",
       qr: "assets/qr/qr-chu-re.png",
@@ -87,7 +140,6 @@ const WEDDING = {
   ],
 
   music: {
-    // Đặt file MP3 của bạn tại assets/music/wedding.mp3
     url: "assets/music/wedding.mp3",
     title: "Wedding music",
   },
