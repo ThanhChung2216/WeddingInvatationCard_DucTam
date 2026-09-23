@@ -4,8 +4,8 @@
 
 const WEDDING = {
   couple: {
-    groom: "Đinh Văn Đức",
-    bride: "Nguyễn Tuệ Tâm",
+    groom: "Đinh Đức",
+    bride: "Nguyễn Tâm",
     short: "Đinh Đức & Tuệ Tâm",
     tagline: "We are getting married",
   },
@@ -21,12 +21,13 @@ const WEDDING = {
       father: "Đinh Văn Đạt",
       mother: "Nguyễn Thị Toàn",
       label: "Ông: Đinh Văn Đạt — Bà: Nguyễn Thị Toàn",
+      lines: ["Ông: Đinh Văn Đạt", "Bà: Nguyễn Thị Toàn"],
     },
     heroImage: "assets/images/groom-hero.svg",
     avatar: "assets/images/groom-avatar.svg",
     themeClass: "theme-groom",
     heroDateText: "11h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
-    
+
     // 1. Mời cơm (Tiệc cưới)
     banquet: {
       tag: "THỜI GIAN, ĐỊA CHỈ MỜI CƠM",
@@ -63,6 +64,7 @@ const WEDDING = {
       father: "Nguyễn Trường Đoàn",
       grandmother: "Nguyễn Thị Giang",
       label: "Ông: Nguyễn Trường Đoàn — Bà: Nguyễn Thị Giang",
+      lines: ["Ông: Nguyễn Trường Đoàn", "Bà: Nguyễn Thị Giang"],
     },
     heroImage: "assets/images/bride-hero.svg",
     avatar: "assets/images/bride-avatar.svg",

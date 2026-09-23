@@ -223,8 +223,9 @@ body.theme-bride .hero-side-pill { border-color: #fff0f1; color: #fff0f1; backgr
 .cert-corner.br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
 
 .family-heading { font-size: 11px; letter-spacing: .22em; font-weight: 700; color: var(--theme-accent); margin: 0 0 10px; text-transform: uppercase; }
-.family-couple-highlight { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-.family-parents-text { font-size: 16px; color: var(--muted); font-weight: 500; }
+.family-couple-highlight { font-family: var(--serif); font-size: clamp(22px, 5.5vw, 26px); font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+.family-parents-text { font-size: 16px; color: var(--muted); font-weight: 500; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+.family-parents-text .parent-line { display: block; white-space: nowrap; line-height: 1.5; }
 .lead { font-family: var(--serif); font-size: 21px; line-height: 1.7; color: var(--muted); font-style: italic; }
 
 /* =========================================================
@@ -355,6 +356,9 @@ body.theme-groom .event-map-btn.btn-featured { color: var(--theme-accent-light);
   .cover-content h1 { font-size: clamp(26px, 8vw, 44px); }
   .side-selector-grid { grid-template-columns: 1fr; gap: 16px; }
   .side-card { padding: 22px 16px; }
+  .family-certificate { padding: 24px 14px; margin: 20px auto; }
+  .family-parents-text { font-size: 15px; gap: 4px; }
+  .lead { font-size: 18px; line-height: 1.6; }
   .floating-side-switch { top: 12px; width: calc(100% - 24px); justify-content: center; }
   .switch-btn { padding: 7px 12px; font-size: 11px; }
   .floating-controls { right: 12px; bottom: 16px; }

@@ -113,7 +113,16 @@ function updateSideContent(sideKey) {
   safeText('familyHeading', isGroom ? 'HÔN LỄ CON TRAI CHÚNG TÔI' : 'HÔN LỄ CON / CHÁU GÁI CHÚNG TÔI');
   safeText('familyCoupleHighlight', isGroom ? `Chú rể: ${data.groomName}` : `Cô dâu: ${data.brideName}`);
   if (data.parents) {
-    safeText('familyParentsText', data.parents.label);
+    const parentsContainer = $('familyParentsText');
+    if (parentsContainer) {
+      if (Array.isArray(data.parents.lines)) {
+        parentsContainer.innerHTML = data.parents.lines
+          .map(line => `<span class="parent-line">${line}</span>`)
+          .join('');
+      } else {
+        safeText('familyParentsText', data.parents.label);
+      }
+    }
   }
 
   // Tiêu đề Countdown
