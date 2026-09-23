@@ -11,7 +11,7 @@ let countdownInterval = null;
 // Quản lý Tự động lướt (Auto Scroll)
 let isAutoScrolling = false;
 let autoScrollRafId = null;
-let autoScrollSpeed = 0.8; // Tốc độ vừa phải (~48px/s), rất êm ái để đọc
+let autoScrollSpeed = 1.0; // Tốc độ chuẩn (~60px/s), rất êm ái để đọc trên cả mobile và desktop
 let particleInterval = null;
 
 function detectSideFromUrl() {
@@ -256,6 +256,8 @@ function openInvitationCard() {
 function startAutoScroll() {
   if (isAutoScrolling) return;
   isAutoScrolling = true;
+  document.documentElement.classList.add('is-autoscrolling');
+  document.body.classList.add('is-autoscrolling');
   updateAutoScrollButtonUI(true);
 
   let lastTimestamp = performance.now();
@@ -269,7 +271,7 @@ function startAutoScroll() {
     const delta = (autoScrollSpeed * elapsed) / 16.67;
     window.scrollBy(0, delta);
 
-    const isAtBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 10);
+    const isAtBottom = (window.innerHeight + window.pageYOffset) >= (document.documentElement.scrollHeight - 15);
     if (isAtBottom) {
       stopAutoScroll();
       showToast('Đã xem hết thiệp cưới ✨');
@@ -285,6 +287,8 @@ function startAutoScroll() {
 function stopAutoScroll() {
   if (!isAutoScrolling) return;
   isAutoScrolling = false;
+  document.documentElement.classList.remove('is-autoscrolling');
+  document.body.classList.remove('is-autoscrolling');
   if (autoScrollRafId) {
     cancelAnimationFrame(autoScrollRafId);
     autoScrollRafId = null;
@@ -323,19 +327,34 @@ function setupAutoScroll() {
   const btn = $('autoScrollBtn');
   if (btn) {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       toggleAutoScroll();
     });
   }
 
-  const pauseOnUserInteraction = () => {
-    if (isAutoScrolling) {
+  // Tạm dừng khi người dùng chủ động vuốt ngón tay để đọc
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isAutoScrolling && e.touches && e.touches.length > 0) {
+      const touchCurrentY = e.touches[0].clientY;
+      if (Math.abs(touchCurrentY - touchStartY) > 12) {
+        stopAutoScroll();
+      }
+    }
+  }, { passive: true });
+
+  window.addEventListener('wheel', (e) => {
+    if (isAutoScrolling && Math.abs(e.deltaY) > 2) {
       stopAutoScroll();
     }
-  };
-
-  window.addEventListener('wheel', pauseOnUserInteraction, { passive: true });
-  window.addEventListener('touchmove', pauseOnUserInteraction, { passive: true });
+  }, { passive: true });
 }
 
 function setupSideSelection() {
