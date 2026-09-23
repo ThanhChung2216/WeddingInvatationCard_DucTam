@@ -5,7 +5,7 @@
 const WEDDING = {
   couple: {
     groom: "Đinh Đức",
-    bride: "Nguyễn Tâm",
+    bride: "Tuệ Tâm",
     short: "Đinh Đức & Tuệ Tâm",
     tagline: "We are getting married",
   },
