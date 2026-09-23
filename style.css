@@ -28,8 +28,8 @@ p { line-height: 1.75; }
 .center-copy { text-align: center; max-width: 650px; margin: 0 auto 38px; color: var(--muted); }
 
 /* Loading screen */
-.loading-screen { position: fixed; inset: 0; z-index: 99; display: grid; place-items: center; background: var(--bg); transition: opacity .5s ease, visibility .5s ease; }
-.loading-screen.hide { opacity: 0; visibility: hidden; }
+.loading-screen { position: fixed; inset: 0; z-index: 999; display: grid; place-items: center; background: var(--bg); transition: opacity .4s ease, visibility .4s ease; pointer-events: auto; }
+.loading-screen.hide { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; display: none !important; }
 .loading-mark { font-family: var(--script); font-size: 46px; letter-spacing: .06em; }
 .loading-mark span { font-family: var(--serif); color: var(--accent); font-size: 0.7em; vertical-align: middle; }
 
@@ -67,6 +67,19 @@ p { line-height: 1.75; }
 .switch-btn.active { background: var(--ink); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
 body.theme-bride .switch-btn.active { background: var(--bride-accent); color: #fff; }
 
+/* Floating Controls (Auto-Scroll & Music Button) */
+.floating-controls { position: fixed; right: 20px; bottom: 24px; z-index: 88; display: flex; align-items: center; gap: 10px; }
+.auto-scroll-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(251,248,243,.94); backdrop-filter: blur(10px); border: 1.5px solid var(--line); padding: 10px 18px; border-radius: 30px; font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--ink); box-shadow: 0 6px 20px rgba(47,43,39,.12); cursor: pointer; transition: all .25s ease; }
+.auto-scroll-btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 24px rgba(47,43,39,.18); }
+.auto-scroll-btn.is-scrolling { background: var(--ink); color: #fff; border-color: var(--ink); }
+body.theme-bride .auto-scroll-btn.is-scrolling { background: var(--bride-accent); border-color: var(--bride-accent); color: #fff; }
+.scroll-icon { font-size: 11px; }
+
+.sound-button-float { border: 1.5px solid var(--line); background: rgba(251,248,243,.94); backdrop-filter: blur(10px); color: var(--ink); width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 17px; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(47,43,39,.12); transition: all .25s ease; }
+.sound-button-float:hover { transform: scale(1.08); border-color: var(--accent); }
+.sound-button-float.playing { background: var(--ink); color: #fff; border-color: var(--ink); }
+body.theme-bride .sound-button-float.playing { background: var(--bride-accent); border-color: var(--bride-accent); color: #fff; }
+
 /* Buttons */
 .primary-button, .outline-button, .copy-button, .text-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border: 1px solid transparent; text-decoration: none; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .13em; cursor: pointer; transition: all .25s ease; }
 .primary-button { background: var(--ink); color: var(--paper); }
@@ -90,8 +103,6 @@ body.theme-bride .primary-button:hover { background: #873d40; }
 .hero-content h1 i { font-family: var(--serif); color: #f7eee3; font-weight: 400; font-style: italic; font-size: 0.65em; margin: 0 4px; vertical-align: middle; }
 .hero-tagline { font-family: var(--serif); font-size: 19px; font-style: italic; margin: 0 0 14px; letter-spacing: .02em; }
 .hero-date { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,.4); }
-.sound-button { position: absolute; right: 22px; top: 22px; z-index: 86; border: 1px solid rgba(255,255,255,.55); background: rgba(255,255,255,.15); backdrop-filter: blur(6px); color: #fff; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; font-size: 18px; transition: transform .2s ease; }
-.sound-button:hover { transform: scale(1.08); }
 
 /* Lời ngỏ & Thông tin gia đình */
 .intro-section { text-align: center; }
@@ -187,6 +198,9 @@ body.theme-bride .rsvp-section { background: #3d2325; }
   .side-card { padding: 20px 14px; }
   .floating-side-switch { top: 12px; width: calc(100% - 24px); justify-content: center; }
   .switch-btn { padding: 6px 12px; font-size: 11px; }
+  .floating-controls { right: 12px; bottom: 16px; }
+  .auto-scroll-btn { padding: 8px 14px; font-size: 11px; }
+  .sound-button-float { width: 38px; height: 38px; font-size: 15px; }
   .hero-content h1 { font-size: clamp(28px, 8.5vw, 50px); }
   .countdown { grid-template-columns: repeat(2, 1fr); }
   .story-grid { grid-template-columns: 1fr; gap: 15px; }

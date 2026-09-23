@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+  <div class="loading-screen" id="loadingScreen">
     <div class="loading-mark">Đ <span>&</span> T</div>
   </div>
 
@@ -77,6 +77,15 @@
       <button class="switch-btn" id="switchBrideBtn" type="button">👰 Nhà Gái</button>
     </div>
 
+    <!-- NÚT TỰ ĐỘNG LƯỚT & NÚT NHẠC NỔI GÓC DƯỚI -->
+    <div class="floating-controls">
+      <button class="auto-scroll-btn" id="autoScrollBtn" type="button" aria-label="Tự động lướt thiệp">
+        <span class="scroll-icon" id="scrollIcon">▶</span>
+        <span class="scroll-text" id="scrollText">Tự động lướt</span>
+      </button>
+      <button class="sound-button-float" id="soundButton" aria-label="Bật hoặc tắt nhạc">♫</button>
+    </div>
+
     <header class="hero section" id="heroSection">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -86,7 +95,6 @@
         <p class="hero-tagline" id="tagline">We are getting married</p>
         <div class="hero-date" id="heroDate">11h00 Chủ nhật, ngày 25 tháng 10 năm 2026</div>
       </div>
-      <button class="sound-button" id="soundButton" aria-label="Bật hoặc tắt nhạc">♫</button>
     </header>
 
     <main>
@@ -235,6 +243,17 @@
 
   <div class="toast" id="toast" role="status"></div>
   <audio id="weddingMusic" loop preload="none"></audio>
+
+  <!-- Script bảo đảm màn hình loading luôn được đóng ngay -->
+  <script>
+    setTimeout(function () {
+      var ls = document.getElementById('loadingScreen');
+      if (ls) {
+        ls.classList.add('hide');
+        setTimeout(function () { ls.style.display = 'none'; }, 300);
+      }
+    }, 400);
+  </script>
 
   <script src="config.js"></script>
   <script src="script.js"></script>
