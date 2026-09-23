@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1260">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f4ece2"/><stop offset="1" stop-color="#c7b3a2"/></linearGradient></defs>
+  <rect width="900" height="1260" fill="url(#g)"/>
+  <circle cx="620" cy="420" r="180" fill="#fff" opacity=".22"/>
+  <circle cx="450" cy="790" r="150" fill="#7d6757" opacity=".16"/>
+  <text x="450" y="680" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#554941" opacity=".75">PHOTO 6</text>
+  <text x="450" y="730" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#554941" opacity=".55">Replace with your own photo</text>
+</svg>

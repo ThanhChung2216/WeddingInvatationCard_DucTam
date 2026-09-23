@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f2ea">
+  <meta name="description" content="Thiệp cưới online của chúng mình">
+  <meta property="og:title" content="Văn Đức & Tuệ Tâm — Wedding Invitation">
+  <meta property="og:description" content="Trân trọng kính mời bạn đến chung vui cùng chúng mình.">
+  <meta property="og:type" content="website">
+  <title>Văn Đức & Tuệ Tâm — Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+    <div class="loading-mark">Đ <span>&</span> T</div>
+  </div>
+
+  <div class="invite-cover" id="inviteCover">
+    <div class="cover-pattern"></div>
+    <div class="cover-content">
+      <div class="eyebrow">THE WEDDING OF</div>
+      <h1 id="coverNames">Văn Đức <span>&</span> Tuệ Tâm</h1>
+      <p id="coverDate">25 · 10 · 2026</p>
+      <button class="primary-button" id="openInvitation">MỞ THIỆP</button>
+      <p class="cover-hint">Chạm để mở lời mời</p>
+    </div>
+  </div>
+
+  <div class="site-shell" id="siteShell" aria-hidden="true">
+    <header class="hero section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow">SAVE THE DATE</div>
+        <h1><span id="groomName">Văn Đức</span> <i>&</i> <span id="brideName">Tuệ Tâm</span></h1>
+        <p class="hero-tagline" id="tagline">We are getting married</p>
+        <div class="hero-date" id="heroDate">Chủ nhật, ngày 26 tháng 10 năm 2026</div>
+      </div>
+      <button class="sound-button" id="soundButton" aria-label="Bật hoặc tắt nhạc">♫</button>
+    </header>
+
+    <main>
+      <section class="section intro-section container narrow reveal">
+        <div class="section-label">A NOTE FROM US</div>
+        <h2>Trân trọng kính mời</h2>
+        <div class="ornament"><span></span> ♥ <span></span></div>
+        <p class="lead">Sự hiện diện của bạn là niềm vui và là một phần thật đẹp trong ngày đặc biệt của chúng mình.</p>
+      </section>
+
+      <section class="section countdown-section reveal">
+        <div class="container">
+          <div class="section-label">COUNTING DOWN TO FOREVER</div>
+          <div class="countdown" id="countdown">
+            <div><strong id="days">00</strong><span>Ngày</span></div>
+            <div><strong id="hours">00</strong><span>Giờ</span></div>
+            <div><strong id="minutes">00</strong><span>Phút</span></div>
+            <div><strong id="seconds">00</strong><span>Giây</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section story-section reveal">
+        <div class="container story-grid">
+          <div>
+            <div class="section-label">OUR STORY</div>
+            <h2 id="storyTitle">Một câu chuyện bắt đầu từ một cuộc gặp</h2>
+          </div>
+          <div class="story-copy" id="storyCopy"></div>
+        </div>
+      </section>
+
+      <section class="section gallery-section reveal">
+        <div class="container">
+          <div class="section-label">OUR MOMENTS</div>
+          <h2>Những khoảnh khắc chúng mình muốn lưu giữ</h2>
+          <div class="gallery" id="gallery"></div>
+        </div>
+      </section>
+
+      <section class="section event-section reveal">
+        <div class="container">
+          <div class="section-label">THE CELEBRATION & VENUE</div>
+          <h2>Ngày vui của chúng mình</h2>
+          <p class="center-copy">Trân trọng kính mời bạn đến tham dự và chung vui cùng gia đình chúng mình</p>
+
+          <div class="event-grid">
+            <!-- 1. Cử hành hôn lễ -->
+            <div class="event-card">
+              <div class="event-card-header">
+                <span class="event-tag" id="ceremonyTag">CỬ HÀNH HÔN LỄ</span>
+                <span class="event-time" id="ceremonyTimeBadge">11:00</span>
+              </div>
+              <h3 id="ceremonyTitle">Lễ Thành Hôn</h3>
+              <div class="event-venue-name" id="ceremonyVenue">Tư gia nhà trai</div>
+              <p class="event-address" id="ceremonyAddress">Thôn Giáo, xã Đại Đồng, Thành phố Bắc Ninh</p>
+              <a class="outline-button event-map-btn" id="ceremonyMapBtn"
+                href="https://maps.app.goo.gl/mgD8j7eME1PnTivR8" target="_blank" rel="noopener">📍 MỞ BẢN ĐỒ</a>
+            </div>
+
+            <!-- 2. Tiệc rượu / Tiệc cưới -->
+            <div class="event-card highlight-card">
+              <div class="event-card-header">
+                <span class="event-tag" id="receptionTag">TIỆC RƯỢU CHUNG VUI</span>
+                <span class="event-time" id="receptionTimeBadge">16:30</span>
+              </div>
+              <h3 id="receptionTitle">Tiệc Cưới</h3>
+              <div class="event-venue-name" id="receptionVenue">Nhà thờ giáo xứ Dũng Vy</div>
+              <p class="event-address" id="receptionAddress">Thôn Giáo, xã Đại Đồng, Thành phố Bắc Ninh</p>
+              <a class="primary-button event-map-btn" id="receptionMapBtn"
+                href="https://maps.app.goo.gl/Cc2H3ob1dw5xK1dH9" target="_blank" rel="noopener">📍 MỞ BẢN ĐỒ</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section rsvp-section reveal">
+        <div class="container narrow rsvp-card">
+          <div class="section-label">RSVP</div>
+          <h2>Xác nhận tham dự</h2>
+          <p>Vui lòng xác nhận để chúng mình chuẩn bị chu đáo hơn cho ngày vui.</p>
+          <a class="primary-button inline-button" id="rsvpButton" href="#" target="_blank" rel="noopener">XÁC NHẬN THAM
+            DỰ</a>
+          <div class="mini-contact">
+            <a id="brideContact" href="#">Cô dâu</a>
+            <span>·</span>
+            <a id="groomContact" href="#">Chú rể</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gift-section reveal">
+        <div class="container narrow">
+          <div class="section-label">WITH LOVE</div>
+          <h2>Lời chúc & mừng cưới</h2>
+          <p class="center-copy">Cảm ơn bạn đã gửi lời chúc đến chúng mình. Một lời chúc, một tình cảm nhỏ cũng đã là
+            món quà thật đáng quý.</p>
+          <div class="gift-grid">
+            <div class="gift-card">
+              <h3 id="brideGiftName">NGỌC ANH</h3>
+              <img id="brideQr" src="assets/qr/qr-co-dau.png" alt="QR mừng cưới cô dâu">
+              <p><strong id="brideBank">Tên ngân hàng</strong><br><span id="brideAccount">0000000000</span></p>
+              <button class="copy-button" data-copy-target="brideAccount">SAO CHÉP STK</button>
+            </div>
+            <div class="gift-card">
+              <h3 id="groomGiftName">MINH CHUNG</h3>
+              <img id="groomQr" src="assets/qr/qr-chu-re.png" alt="QR mừng cưới chú rể">
+              <p><strong id="groomBank">Tên ngân hàng</strong><br><span id="groomAccount">0000000000</span></p>
+              <button class="copy-button" data-copy-target="groomAccount">SAO CHÉP STK</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section closing-section reveal">
+        <div class="closing-inner container narrow">
+          <div class="eyebrow">THANK YOU</div>
+          <h2>Hẹn gặp bạn trong ngày vui</h2>
+          <p>Thân ái,<br><span id="closingNames">Ngọc Anh & Minh Chung</span></p>
+          <button class="outline-button" id="calendarButton">THÊM VÀO LỊCH</button>
+          <button class="text-button" id="shareButton">Chia sẻ thiệp</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Made with love · <span id="footerNames">Văn Đức & Tuệ Tâm</span></div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <audio id="weddingMusic" loop preload="none"></audio>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
