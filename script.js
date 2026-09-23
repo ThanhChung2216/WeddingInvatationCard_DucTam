@@ -148,14 +148,6 @@ function updateSideContent(sideKey) {
     if ($('ceremonyMapBtn')) $('ceremonyMapBtn').href = data.ceremony.mapsUrl || '#';
   }
 
-  // Nổi bật thẻ quà mừng tương ứng
-  const groomCard = $('groomGiftCard');
-  const brideCard = $('brideGiftCard');
-  if (groomCard && brideCard) {
-    groomCard.classList.toggle('active-gift', isGroom);
-    brideCard.classList.toggle('active-gift', !isGroom);
-  }
-
   // Cập nhật URL tham số
   try {
     const newUrl = new URL(window.location.href);
@@ -180,21 +172,6 @@ function populateCommonContent() {
   if ($('rsvpButton')) $('rsvpButton').href = WEDDING.contact.rsvpUrl || '#';
   if ($('brideContact')) $('brideContact').href = `tel:${WEDDING.contact.bridePhone}`;
   if ($('groomContact')) $('groomContact').href = `tel:${WEDDING.contact.groomPhone}`;
-
-  if (WEDDING.gift) {
-    if (WEDDING.gift.bride) {
-      safeText('brideGiftName', WEDDING.gift.bride.name);
-      safeText('brideBank', WEDDING.gift.bride.bank);
-      safeText('brideAccount', WEDDING.gift.bride.account);
-      if ($('brideQr')) $('brideQr').src = WEDDING.gift.bride.qr;
-    }
-    if (WEDDING.gift.groom) {
-      safeText('groomGiftName', WEDDING.gift.groom.name);
-      safeText('groomBank', WEDDING.gift.groom.bank);
-      safeText('groomAccount', WEDDING.gift.groom.account);
-      if ($('groomQr')) $('groomQr').src = WEDDING.gift.groom.qr;
-    }
-  }
 
   if ($('weddingMusic') && WEDDING.music) {
     $('weddingMusic').src = WEDDING.music.url;
