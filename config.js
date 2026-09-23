@@ -23,8 +23,8 @@ const WEDDING = {
       label: "Ông: Đinh Văn Đạt — Bà: Nguyễn Thị Toàn",
       lines: ["Ông: Đinh Văn Đạt", "Bà: Nguyễn Thị Toàn"],
     },
-    heroImage: "assets/images/groom-hero.svg",
-    avatar: "assets/images/groom-avatar.svg",
+    heroImage: "assets/images/groom-hero.JPG",
+    avatar: "assets/images/groom-avatar.JPG",
     themeClass: "theme-groom",
     heroDateText: "11h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
 
@@ -66,8 +66,8 @@ const WEDDING = {
       label: "Ông: Nguyễn Trường Đoàn — Bà: Nguyễn Thị Giang",
       lines: ["Ông: Nguyễn Trường Đoàn", "Bà: Nguyễn Thị Giang"],
     },
-    heroImage: "assets/images/bride-hero.svg",
-    avatar: "assets/images/bride-avatar.svg",
+    heroImage: "assets/images/bride-hero.JPG",
+    avatar: "assets/images/bride-avatar.JPG",
     themeClass: "theme-bride",
     heroDateText: "10h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
 
@@ -133,12 +133,12 @@ const WEDDING = {
   },
 
   gallery: [
-    "assets/images/photo-1.svg",
-    "assets/images/photo-2.svg",
-    "assets/images/photo-3.svg",
-    "assets/images/photo-4.svg",
-    "assets/images/photo-5.svg",
-    "assets/images/photo-6.svg",
+    "assets/images/photo-1.JPG",
+    "assets/images/photo-2.JPG",
+    "assets/images/photo-3.JPG",
+    "assets/images/photo-4.JPG",
+    "assets/images/photo-5.JPG",
+    "assets/images/photo-6.JPG",
   ],
 
   music: {
