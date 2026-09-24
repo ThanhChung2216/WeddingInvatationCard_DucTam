@@ -298,6 +298,8 @@ body.theme-groom .event-map-btn.btn-featured { color: var(--theme-accent-light);
 .gift-section { background: var(--bg); }
 .gift-section .section-label, .gift-section h2 { text-align: center; }
 .gift-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 38px; }
+.gift-grid.gift-grid-single { display: flex; justify-content: center; max-width: 450px; margin: 38px auto 0; }
+.gift-grid.gift-grid-single .gift-card { width: 100%; }
 .gift-card { text-align: center; background: var(--paper); border: 2px solid var(--line); padding: 32px 24px; border-radius: 8px; transition: all .35s ease; position: relative; box-shadow: 0 8px 24px var(--theme-shadow); }
 .gift-card:hover { transform: translateY(-4px); }
 .gift-card.active-gift { border-color: var(--theme-accent); box-shadow: 0 14px 35px var(--theme-glow); }

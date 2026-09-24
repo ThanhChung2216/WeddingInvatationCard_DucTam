@@ -118,17 +118,13 @@ const WEDDING = {
   },
 
   gift: {
-    bride: {
-      name: "Nguyễn Tuệ Tâm",
-      bank: "Tên ngân hàng",
-      account: "0000000000",
-      qr: "assets/qr/qr-co-dau.png",
-    },
+    // Thông tin mừng cưới Nhà Trai (Chú rể)
     groom: {
       name: "Đinh Văn Đức",
       bank: "Techcombank",
       account: "19035685409010",
-      qr: "assets/qr/qr-chu-re.jpg",
+      accountName: "ĐINH VĂN ĐỨC",
+      qr: "assets/qr/qr_chu_re.jpg",
     },
   },
 
