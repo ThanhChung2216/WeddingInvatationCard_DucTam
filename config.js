@@ -113,7 +113,7 @@ const WEDDING = {
   },
 
   contact: {
-    rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLScPKuD48be9dFI-pzjge0J-r25f4CoVIyyyBtB_Xcay_l_syg/viewform",
+    rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSchFDFOeKPXh_ukVCmVJZRVVMY0Va_8N8IeW9UxvptLqnXiPQ/viewform",
     bridePhone: "0900000000",
     groomPhone: "0900000000",
     zaloUrl: "https://zalo.me/0900000000",
