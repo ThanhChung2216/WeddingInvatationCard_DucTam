@@ -207,7 +207,7 @@ function populateCommonContent() {
   if ($('gallery') && WEDDING.gallery) {
     $('gallery').innerHTML = WEDDING.gallery.map((src, i) => `
       <figure class="gallery-item" data-src="${src}">
-        <img src="${src}" loading="lazy" alt="Khoảnh khắc ${i + 1}">
+        <img src="${src}" loading="lazy" decoding="async" alt="Khoảnh khắc ${i + 1}">
       </figure>
     `).join('');
     setupLightbox();
