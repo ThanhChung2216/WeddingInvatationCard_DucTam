@@ -79,7 +79,7 @@ const WEDDING = {
       lunarDate: "(Tức ngày 15 tháng 9 năm Bính Ngọ)",
       venue: "Nhà văn hóa xóm Chùa",
       address: "Đại Thượng, xã Đại Đồng, tỉnh Bắc Ninh",
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Nh%C3%A0+v%C4%83n+h%C3%B3a+x%C3%B3m+Ch%C3%B9a+%C4%90%E1%BA%A1i+Th%C6%B0%E1%BB%A3ng+%C4%90%E1%BA%A1i+%C4%90%E1%BB%93ng+B%E1%BA%AFc+Ninh",
+      mapsUrl: "https://maps.app.goo.gl/B1EEYL1X2joY5m8K7",
     },
 
     // 2. Lễ Vu Quy
@@ -90,7 +90,7 @@ const WEDDING = {
       lunarDate: "(Tức ngày 16 tháng 09 năm Bính Ngọ)",
       venue: "Tư gia nhà gái",
       address: "Đại Thượng, xã Đại Đồng, tỉnh Bắc Ninh",
-      mapsUrl: "https://www.google.com/maps/search/?api=1&query=%C4%90%E1%BA%A1i+Th%C6%B0%E1%BB%A3ng+%C4%90%E1%BA%A1i+%C4%90%E1%BB%93ng+B%E1%BA%AFc+Ninh",
+      mapsUrl: "https://maps.app.goo.gl/4SrrDLJJA2WyCTwu8",
     },
 
     countdownDate: "2026-10-25T10:00:00+07:00",
@@ -126,9 +126,9 @@ const WEDDING = {
     },
     groom: {
       name: "Đinh Văn Đức",
-      bank: "Tên ngân hàng",
-      account: "0000000000",
-      qr: "assets/qr/qr-chu-re.png",
+      bank: "Techcombank",
+      account: "19035685409010",
+      qr: "assets/qr/qr-chu-re.jpg",
     },
   },
 

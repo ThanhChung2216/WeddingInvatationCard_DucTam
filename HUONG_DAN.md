@@ -128,17 +128,19 @@ Sau đó sửa thông tin tương ứng trong `config.js`:
 
 ```js
 gift: {
-  bride: {
-    name: "NGỌC ANH",
-    bank: "VIETCOMBANK",
-    account: "1234567890",
-    qr: "assets/qr/qr-co-dau.png",
-  },
   groom: {
-    name: "MINH CHUNG",
-    bank: "MB BANK",
-    account: "9876543210",
+    name: "Đinh Văn Đức",
+    bank: "MB Bank",
+    account: "0000000000",
+    accountName: "ĐINH VĂN ĐỨC",
     qr: "assets/qr/qr-chu-re.png",
+  },
+  bride: {
+    name: "Nguyễn Tuệ Tâm",
+    bank: "Vietcombank",
+    account: "0000000000",
+    accountName: "NGUYỄN TUỆ TÂM",
+    qr: "assets/qr/qr-co-dau.png",
   },
 }
 ```

@@ -157,6 +157,14 @@ function updateSideContent(sideKey) {
     if ($('ceremonyMapBtn')) $('ceremonyMapBtn').href = data.ceremony.mapsUrl || '#';
   }
 
+  // Đánh dấu nổi bật thẻ QR mừng cưới theo bên đang xem (Nhà Trai / Nhà Gái)
+  const groomGiftCard = $('giftCardGroom');
+  const brideGiftCard = $('giftCardBride');
+  if (groomGiftCard && brideGiftCard) {
+    groomGiftCard.classList.toggle('active-gift', isGroom);
+    brideGiftCard.classList.toggle('active-gift', !isGroom);
+  }
+
   // Cập nhật URL tham số
   try {
     const newUrl = new URL(window.location.href);
@@ -181,6 +189,28 @@ function populateCommonContent() {
   if ($('rsvpButton')) $('rsvpButton').href = WEDDING.contact.rsvpUrl || '#';
   if ($('brideContact')) $('brideContact').href = `tel:${WEDDING.contact.bridePhone}`;
   if ($('groomContact')) $('groomContact').href = `tel:${WEDDING.contact.groomPhone}`;
+
+  // Nạp thông tin mừng cưới & QR chuyển khoản
+  if (WEDDING.gift) {
+    if (WEDDING.gift.groom) {
+      safeText('giftGroomName', WEDDING.gift.groom.name || WEDDING.groomSide?.groomName || WEDDING.couple.groom);
+      safeText('giftGroomBank', WEDDING.gift.groom.bank || 'Ngân hàng');
+      safeText('giftGroomAccount', WEDDING.gift.groom.account || '0000000000');
+      safeText('giftGroomAccountName', WEDDING.gift.groom.accountName || WEDDING.gift.groom.name || WEDDING.groomSide?.groomName || WEDDING.couple.groom);
+      if ($('giftGroomQr') && WEDDING.gift.groom.qr) {
+        $('giftGroomQr').src = WEDDING.gift.groom.qr;
+      }
+    }
+    if (WEDDING.gift.bride) {
+      safeText('giftBrideName', WEDDING.gift.bride.name || WEDDING.brideSide?.brideName || WEDDING.couple.bride);
+      safeText('giftBrideBank', WEDDING.gift.bride.bank || 'Ngân hàng');
+      safeText('giftBrideAccount', WEDDING.gift.bride.account || '0000000000');
+      safeText('giftBrideAccountName', WEDDING.gift.bride.accountName || WEDDING.gift.bride.name || WEDDING.brideSide?.brideName || WEDDING.couple.bride);
+      if ($('giftBrideQr') && WEDDING.gift.bride.qr) {
+        $('giftBrideQr').src = WEDDING.gift.bride.qr;
+      }
+    }
+  }
 
   if ($('weddingMusic') && WEDDING.music) {
     $('weddingMusic').src = WEDDING.music.url;
