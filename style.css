@@ -194,9 +194,11 @@ body.theme-groom .auto-scroll-btn.is-scrolling { color: var(--theme-accent-light
 /* =========================================================
    HERO SECTION
    ========================================================= */
-.hero { min-height: 100svh; display: grid; place-items: center; background-position: center; background-size: cover; background-repeat: no-repeat; color: #fff; text-align: center; transition: background-image .8s ease; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.25) 0%, rgba(0,0,0,.5) 100%); }
-.hero-content { position: relative; z-index: 1; padding: 40px 16px; }
+.hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; background-position: center top; background-size: cover; background-repeat: no-repeat; color: #fff; text-align: center; transition: background-image .8s ease, background-position .5s ease; padding-top: clamp(100px, 18vh, 160px); padding-bottom: clamp(36px, 6vh, 64px); position: relative; }
+body.theme-groom .hero { background-position: center top; }
+body.theme-bride .hero { background-position: center top; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.08) 0%, rgba(0,0,0,.18) 35%, rgba(0,0,0,.72) 100%); }
+.hero-content { position: relative; z-index: 1; padding: 20px 16px; width: 100%; max-width: 900px; margin: 0 auto; }
 
 .hero-side-pill { display: inline-block; background: rgba(255,255,255,.2); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.5); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .22em; padding: 6px 18px; border-radius: 30px; margin-bottom: 18px; text-transform: uppercase; }
 body.theme-groom .hero-side-pill { border-color: var(--theme-accent-light); color: var(--theme-accent-light); background: rgba(21,34,46,.6); }

@@ -24,6 +24,7 @@ const WEDDING = {
       lines: ["Ông: Đinh Văn Đạt", "Bà: Nguyễn Thị Toàn"],
     },
     heroImage: "assets/images/groom-hero.JPG",
+    heroPosition: "center top", // Căn vị trí ảnh bìa (center top để thấy rõ mặt)
     avatar: "assets/images/groom-avatar.JPG",
     themeClass: "theme-groom",
     heroDateText: "11h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",
@@ -67,6 +68,7 @@ const WEDDING = {
       lines: ["Ông: Nguyễn Trường Đoàn", "Bà: Nguyễn Thị Giang"],
     },
     heroImage: "assets/images/bride-hero.JPG",
+    heroPosition: "center top", // Căn vị trí ảnh bìa (center top để thấy rõ mặt)
     avatar: "assets/images/bride-avatar.JPG",
     themeClass: "theme-bride",
     heroDateText: "10h00 Chủ Nhật, ngày 25 tháng 10 năm 2026",

@@ -103,6 +103,7 @@ function updateSideContent(sideKey) {
   const hero = $('heroSection');
   if (hero) {
     hero.style.backgroundImage = `url("${data.heroImage}")`;
+    hero.style.backgroundPosition = data.heroPosition || 'center top';
   }
 
   safeText('heroSideBadge', `THIỆP MỜI ${data.name.toUpperCase()}`);
